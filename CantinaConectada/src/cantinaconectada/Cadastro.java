@@ -5,7 +5,6 @@ public class Cadastro {
     private String nome;
     private boolean email;
     private String senha;
-    
    
     public String getNome() {
         return nome;
@@ -19,12 +18,14 @@ public class Cadastro {
         return email;
     }
 
-    public void setEmail(String email) {
+    public String setEmail(String email) {
         if(this.email = email.endsWith("ubec.br")){
             System.out.println("Email Cadastrado");
+            
         }else{
             System.out.println("Email nao cadastrado");
         }
+        return null;
     }
 
     public String getSenha() {
@@ -35,12 +36,15 @@ public class Cadastro {
         this.senha = senha;
     }
     
-    public void confirmas(String confirmas){
+    public String confirmas(String confirmas){
         if(confirmas != senha){
             System.out.println("As senhas não coincidem!");
         }else{
             System.out.println("Senha cadastrada com sucesso!");
         }
+        return confirmas;
     }
+
+    
     
 }

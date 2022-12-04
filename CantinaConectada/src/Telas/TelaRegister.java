@@ -1,4 +1,5 @@
 package Telas;
+
 /**
  *
  * @author hebert
@@ -6,17 +7,15 @@ package Telas;
 
 import cantinaconectada.Cadastro;
 import dados.CadastroDAO;
-import java.util.ArrayList;
-      
-public class TelaRegister extends javax.swing.JFrame{
-    
+
+public class TelaRegister extends javax.swing.JFrame {
+
     private TelaLogin tela;
-    
+
     public TelaRegister(TelaLogin tela) {
         initComponents();
         this.tela = tela;
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,7 +39,7 @@ public class TelaRegister extends javax.swing.JFrame{
         btnCadastrar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        PasswordConfirma = new javax.swing.JPasswordField();
+        Passcon = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         TextNome = new javax.swing.JTextField();
 
@@ -133,10 +132,10 @@ public class TelaRegister extends javax.swing.JFrame{
         jLabel1.setText("Confirma Senha");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        PasswordConfirma.setMaximumSize(new java.awt.Dimension(200, 35));
-        PasswordConfirma.setMinimumSize(new java.awt.Dimension(200, 35));
-        PasswordConfirma.setPreferredSize(new java.awt.Dimension(200, 35));
-        jPanel1.add(PasswordConfirma, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+        Passcon.setMaximumSize(new java.awt.Dimension(200, 35));
+        Passcon.setMinimumSize(new java.awt.Dimension(200, 35));
+        Passcon.setPreferredSize(new java.awt.Dimension(200, 35));
+        jPanel1.add(Passcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 200, -1));
 
@@ -162,24 +161,16 @@ public class TelaRegister extends javax.swing.JFrame{
         String nome = TextNome.getText();
         String email = TextEmail.getText();
         String senha = PasswordField.getText();
-        String csenha = PasswordConfirma.getText();
-        
+        String csenha = Passcon.getText();
+
         Cadastro c = new Cadastro();
         c.setEmail(email);
         c.setNome(nome);
         c.confirmas(csenha);
         c.setSenha(senha);
-        
+
         CadastroDAO objc = new CadastroDAO();
-       objc.cadastroBD(c);
-        
-        
-        ArrayList<Cadastro> cadastro = tela.getLista();
-        cadastro.add(c);
-        
-        tela.setVisible(true);
-        this.dispose();
-        
+        objc.cadastroBD(c);
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -191,7 +182,7 @@ public class TelaRegister extends javax.swing.JFrame{
     private javax.swing.JPanel PainelCampoSenha;
     private javax.swing.JPanel PainelFormulario;
     private javax.swing.JPanel PainelPrincipal;
-    private javax.swing.JPasswordField PasswordConfirma;
+    private javax.swing.JPasswordField Passcon;
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JTextField TextEmail;
     private javax.swing.JTextField TextNome;
