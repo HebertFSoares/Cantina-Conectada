@@ -38,8 +38,6 @@ public class TelaRegister extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        Passcon = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         TextNome = new javax.swing.JTextField();
 
@@ -60,7 +58,7 @@ public class TelaRegister extends javax.swing.JFrame {
         jLabel2.setMaximumSize(new java.awt.Dimension(380, 128));
         jLabel2.setMinimumSize(new java.awt.Dimension(380, 128));
         jLabel2.setPreferredSize(new java.awt.Dimension(380, 128));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 130, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 130, -1));
 
         PainelFormulario.setMaximumSize(new java.awt.Dimension(200, 150));
         PainelFormulario.setMinimumSize(new java.awt.Dimension(200, 150));
@@ -103,9 +101,9 @@ public class TelaRegister extends javax.swing.JFrame {
 
         PainelFormulario.add(PainelCampoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
-        getContentPane().add(PainelFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, 120));
+        getContentPane().add(PainelFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, 120));
 
-        btnSair.setText("Sair");
+        btnSair.setText("Logar");
         btnSair.setMaximumSize(new java.awt.Dimension(95, 35));
         btnSair.setMinimumSize(new java.awt.Dimension(95, 35));
         btnSair.setPreferredSize(new java.awt.Dimension(95, 35));
@@ -128,32 +126,24 @@ public class TelaRegister extends javax.swing.JFrame {
         getContentPane().add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 90, -1));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("Confirma Senha");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        Passcon.setMaximumSize(new java.awt.Dimension(200, 35));
-        Passcon.setMinimumSize(new java.awt.Dimension(200, 35));
-        Passcon.setPreferredSize(new java.awt.Dimension(200, 35));
-        jPanel1.add(Passcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
-
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 200, -1));
 
         jLabel3.setText("Nome");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         TextNome.setMaximumSize(new java.awt.Dimension(200, 35));
         TextNome.setMinimumSize(new java.awt.Dimension(200, 35));
         TextNome.setName(""); // NOI18N
         TextNome.setPreferredSize(new java.awt.Dimension(200, 35));
-        getContentPane().add(TextNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
+        getContentPane().add(TextNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-
+        TelaLogin logar = new TelaLogin();
+        logar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
@@ -161,12 +151,10 @@ public class TelaRegister extends javax.swing.JFrame {
         String nome = TextNome.getText();
         String email = TextEmail.getText();
         String senha = PasswordField.getText();
-        String csenha = Passcon.getText();
 
         Cadastro c = new Cadastro();
         c.setEmail(email);
         c.setNome(nome);
-        c.confirmas(csenha);
         c.setSenha(senha);
 
         CadastroDAO objc = new CadastroDAO();
@@ -182,13 +170,11 @@ public class TelaRegister extends javax.swing.JFrame {
     private javax.swing.JPanel PainelCampoSenha;
     private javax.swing.JPanel PainelFormulario;
     private javax.swing.JPanel PainelPrincipal;
-    private javax.swing.JPasswordField Passcon;
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JTextField TextEmail;
     private javax.swing.JTextField TextNome;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnSair;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

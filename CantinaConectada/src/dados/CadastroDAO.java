@@ -15,16 +15,15 @@ public class CadastroDAO {
     PreparedStatement pstm;
 
     public void cadastroBD(Cadastro c) {
-        String sql = "insert into cadastro (nome,email,senha,confirma) values (?,?,?,?)";
+        String sql = "insert into usuario (nome_usuario,email_usuario,senha_usuario) values (?,?,?)";
 
         con = new MySql().conectaBD();
 
         try {
             pstm = con.prepareStatement(sql);
             pstm.setString(1, c.getNome());
-            pstm.setBoolean(2, c.getEmail());
+            pstm.setString(2, c.getEmail());
             pstm.setString(3, c.getSenha());
-            pstm.setString(4, c.confirmas(c.getSenha()));
             
             pstm.execute();
             pstm.close();
