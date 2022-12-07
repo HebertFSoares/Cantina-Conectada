@@ -2,6 +2,7 @@ package dados;
 
 import cantinaconectada.Lanchonete;
 import cantinaconectada.Login;
+import cantinaconectada.Produtos;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Connection;
@@ -16,6 +17,7 @@ public class UsuarioDAO {
     PreparedStatement pstm = null;
     ResultSet rs = null;
     List<Lanchonete> lista = new ArrayList<>();
+    List<Produtos> lista2 = new ArrayList<>();
 
     public ResultSet autenticacaoUsuario(Login usuario) {
         
@@ -58,6 +60,30 @@ public class UsuarioDAO {
             JOptionPane.showMessageDialog(null, "CadastroDAO lanchonete " + erro);
         }
         return lista;
+
+    }
+    public List<Produtos> pesquisarProdutos() {
+
+        String sql = "select * from produtos";
+        con = new MySql().conectaBD();
+        
+        try {
+            pstm = con.prepareStatement(sql);
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                Produtos pd = new Produtos();
+                pd.setId_produtos(rs.getInt("id_produtos"));
+                pd.setNome_produtos(rs.getString("nome_produto"));
+                pd.setEmpresa(rs.getString("empresa"));
+
+                lista2.add(pd);
+            }
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "CadastroDAO Produtos " + erro);
+        }
+        return lista2;
 
     }
 

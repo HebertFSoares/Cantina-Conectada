@@ -111,6 +111,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
         // TODO add your handling code here:
+        TelaProdutos produtos = new TelaProdutos();
+        produtos.setVisible(true);
     }//GEN-LAST:event_btnProdutosActionPerformed
 
     private void btnLanchoneteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLanchoneteActionPerformed
