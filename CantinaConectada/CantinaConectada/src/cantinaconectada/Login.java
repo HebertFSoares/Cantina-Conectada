@@ -1,6 +1,6 @@
 package cantinaconectada;
 public class Login {
-   
+    private int id_usuario;
     private String email_usuario;
     private String senha_usuario;
 
@@ -19,6 +19,14 @@ public class Login {
 
     public void setSenha_usuario(String senha_usuario) {
         this.senha_usuario = senha_usuario;
+    }
+
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
     }
     
 }

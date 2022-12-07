@@ -1,10 +1,14 @@
 package dados;
 
 import cantinaconectada.Cadastro;
+import cantinaconectada.Lanchonete;
+
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,7 +19,9 @@ public class CadastroDAO {
 
     Connection con;
     PreparedStatement pstm;
-
+    ResultSet rs;
+    ArrayList<Lanchonete> lista = new ArrayList<>();
+    
     public void cadastroBD(Cadastro c) throws SQLException {
         String sql = "insert into usuario (nome_usuario,email_usuario,senha_usuario) values (?,?,?)";
         
@@ -35,5 +41,11 @@ public class CadastroDAO {
             JOptionPane.showMessageDialog(null, "Cadastro" + erro);
         }
     }
+
+    /**
+     *
+     * @return
+     */
+    
 
 }
